@@ -1,5 +1,9 @@
-package pruebas;
+package ejemplos;
 
+/**
+ * Ejemplo intencionalmente incorrecto (no compila). No forma parte del build Maven.
+ * Copiar a otro paquete solo para demostracion en clase.
+ */
 public class CalculadoraMal {
 
     public int sumar(int a, int b) {

@@ -7,7 +7,7 @@ on:
     branches: [main, master]
 
 jobs:
-  compilar:
+  compilar-y-probar:
     runs-on: ubuntu-latest
     steps:
       - name: Obtener codigo
@@ -18,12 +18,7 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
+          cache: maven
 
-      - name: Compilar calculadoras validas
-        run: |
-          javac pruebas/CalculadoraMinima.java pruebas/CalculadoraPerfecta.java
-
-      - name: Ejecutar ejemplos (smoke test)
-        run: |
-          java pruebas.CalculadoraMinima
-          java pruebas.CalculadoraPerfecta
+      - name: Compilar y ejecutar pruebas JUnit
+        run: mvn -B test
