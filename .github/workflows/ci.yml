@@ -1,0 +1,29 @@
+name: CI Java
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  compilar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Compilar calculadoras validas
+        run: |
+          javac pruebas/CalculadoraMinima.java pruebas/CalculadoraPerfecta.java
+
+      - name: Ejecutar ejemplos (smoke test)
+        run: |
+          java pruebas.CalculadoraMinima
+          java pruebas.CalculadoraPerfecta
