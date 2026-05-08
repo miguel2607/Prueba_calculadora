@@ -27,7 +27,7 @@ public class CalculadoraPerfecta {
 
     public static void main(String[] args) {
         CalculadoraPerfecta c = new CalculadoraPerfecta();
-        int a = 12;
+        int a = 11;
         int b = 3;
         LOGGER.info("Suma: " + c.sumar(a, b));
         LOGGER.info("Resta: " + c.restar(a, b));
